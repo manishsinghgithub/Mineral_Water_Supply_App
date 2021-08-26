@@ -6,3 +6,8 @@ const kTextfielddecoration = InputDecoration(
   ),
   hintText: "Email",
 );
+
+const kBoxDecoration = BoxDecoration(
+  borderRadius: BorderRadius.all(Radius.circular(30)),
+  color: Colors.blue,
+);
