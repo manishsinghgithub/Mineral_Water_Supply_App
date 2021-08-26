@@ -31,8 +31,7 @@ class _CardDataState extends State<CardData> {
                 height: 5,
               ),
               Container(
-                height: 35,
-                width: 170,
+                padding: EdgeInsets.all(10),
                 decoration: kBoxDecoration,
                 child: Center(
                   child: Text(

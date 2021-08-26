@@ -60,8 +60,13 @@ class HomePage extends StatelessWidget {
               ),
               FlatButton(
                 onPressed: () {},
-                child: Text("Done and Continue"),
-                color: Colors.blue[300],
+                child: Container(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "Done and Continue",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    )),
+                color: Colors.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
                 ),
