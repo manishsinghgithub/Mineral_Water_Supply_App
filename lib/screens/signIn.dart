@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minaral_water/constant/constant.dart';
+import 'package:minaral_water/screens/home.dart';
 import 'package:minaral_water/screens/signUp.dart';
 
 class SignIn extends StatelessWidget {
@@ -58,7 +59,10 @@ class SignIn extends StatelessWidget {
                     height: 10,
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                     minWidth: 200,
                     child: Text(
                       "Sign In",
