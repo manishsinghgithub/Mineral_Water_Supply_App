@@ -58,14 +58,16 @@ class SignUp extends StatelessWidget {
                   ),
                   FlatButton(
                     onPressed: () {},
-                    minWidth: 200,
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
                     color: Colors.blue[300],
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   Text(

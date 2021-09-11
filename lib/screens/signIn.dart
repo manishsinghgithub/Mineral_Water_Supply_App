@@ -63,14 +63,16 @@ class SignIn extends StatelessWidget {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => HomePage()));
                     },
-                    minWidth: 200,
-                    child: Text(
-                      "Sign In",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "Sign In",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
                     color: Colors.blue[300],
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   Text(
