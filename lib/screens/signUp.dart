@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minaral_water/constant/constant.dart';
+import 'package:minaral_water/screens/detailsForms.dart';
 
 class SignUp extends StatelessWidget {
   @override
@@ -57,7 +58,12 @@ class SignUp extends StatelessWidget {
                     height: 10,
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailsForms()));
+                    },
                     child: Container(
                       padding: EdgeInsets.all(15),
                       child: Text(

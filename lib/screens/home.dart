@@ -27,51 +27,54 @@ class HomePage extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          child: ListView(
-            children: [
-              CardData(
-                path: 'image/1stjar.png',
-                heading: "SILVER PACK",
-                statement:
-                    "This pack contains only pure mineral water of volume 20L",
-                pr: 30,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              CardData(
-                path: 'image/2ndjar.png',
-                heading: 'GOLD PACK',
-                statement: 'This pack contains child pure water of volume 20L',
-                pr: 40,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              CardData(
-                path: 'image/3jar.png',
-                heading: 'PLATINUM PACK',
-                statement:
-                    'This pack contains child and sweet pure water of volume 20L',
-                pr: 50,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              FlatButton(
-                onPressed: () {},
-                child: Container(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Done and Continue",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    )),
-                color: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CardData(
+                  path: 'image/1stjar.png',
+                  heading: "SILVER PACK",
+                  statement:
+                      "This pack contains only pure mineral water of volume 20L",
+                  pr: 30,
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 5,
+                ),
+                CardData(
+                  path: 'image/2ndjar.png',
+                  heading: 'GOLD PACK',
+                  statement:
+                      'This pack contains child pure water of volume 20L',
+                  pr: 40,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                CardData(
+                  path: 'image/3jar.png',
+                  heading: 'PLATINUM PACK',
+                  statement:
+                      'This pack contains child and sweet pure water of volume 20L',
+                  pr: 50,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "Done and Continue",
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      )),
+                  color: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
