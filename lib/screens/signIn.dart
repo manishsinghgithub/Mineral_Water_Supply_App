@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:minaral_water/constant/constant.dart';
-import 'package:minaral_water/screens/home.dart';
 import 'package:minaral_water/screens/signUp.dart';
+import 'package:minaral_water/services/FireBaseAuth.dart';
 
 class SignIn extends StatelessWidget {
+  String? email, password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,22 +47,30 @@ class SignIn extends StatelessWidget {
                     height: 10,
                   ),
                   TextField(
+                    keyboardType: TextInputType.emailAddress,
                     decoration: kTextfielddecoration,
+                    onChanged: (value) {
+                      email = value;
+                    },
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextField(
+                    obscureText: true,
                     decoration:
                         kTextfielddecoration.copyWith(hintText: "Password"),
+                    onChanged: (value) {
+                      password = value;
+                    },
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   FlatButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                    onPressed: () async {
+                      await AuthServices()
+                          .signInEmail(email.toString(), password.toString());
                     },
                     child: Container(
                       padding: EdgeInsets.all(15),

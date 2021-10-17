@@ -4,14 +4,15 @@ import 'package:minaral_water/constant/constant.dart';
 class CardData extends StatefulWidget {
   final String? heading, statement, path;
   final int? pr;
+  bool taped = false;
+  int counter = 0;
+  int total_amt = 0;
   CardData({this.path, this.heading, this.statement, this.pr});
   @override
   _CardDataState createState() => _CardDataState();
 }
 
 class _CardDataState extends State<CardData> {
-  int counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,7 +75,10 @@ class _CardDataState extends State<CardData> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          counter = counter + 1;
+                          widget.counter = widget.counter + 1;
+                          widget.total_amt = widget.total_amt +
+                              (widget.counter * (widget.pr!).toInt());
+                          widget.taped = true;
                         });
                       },
                       icon: Icon(
@@ -87,7 +91,7 @@ class _CardDataState extends State<CardData> {
                     width: 10,
                   ),
                   Text(
-                    counter.toString(),
+                    widget.counter.toString(),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -97,9 +101,14 @@ class _CardDataState extends State<CardData> {
                     decoration: kBoxDecoration,
                     child: IconButton(
                       onPressed: () {
-                        if (counter != 0) {
+                        if (widget.counter != 0) {
                           setState(() {
-                            counter = counter - 1;
+                            widget.counter = widget.counter - 1;
+                            widget.total_amt = widget.total_amt +
+                                (widget.counter * (widget.pr!).toInt());
+                            if (widget.counter == 0) {
+                              widget.taped = false;
+                            }
                           });
                         }
                       },
@@ -120,7 +129,8 @@ class _CardDataState extends State<CardData> {
                 padding: EdgeInsets.all(10),
                 decoration: kBoxDecoration,
                 child: Text(
-                  "Total Amt: " + (counter * widget.pr!.toInt()).toString(),
+                  "Total Amt: " +
+                      (widget.counter * widget.pr!.toInt()).toString(),
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               )

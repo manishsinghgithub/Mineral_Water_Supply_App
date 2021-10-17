@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:minaral_water/screens/detailsForms.dart';
+import 'package:minaral_water/services/FireBaseAuth.dart';
+import 'package:minaral_water/services/userCreation.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -7,7 +10,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  String name = "", address = "", mobile = "";
+  String name = "Manish Singh", address = "", mobile = "";
   String? url = "https://www.woolha.com/media/2020/03/eevee.png";
 
   @override
@@ -54,29 +57,16 @@ class _ProfileState extends State<Profile> {
             height: 5,
           ),
           Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 2 + 55,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage('image/im1.png'),
-              fit: BoxFit.cover,
-            )),
             child: Column(
               children: [
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  "Name",
+                  "Name: " + name,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  name,
-                  style: TextStyle(
-                    fontSize: 20,
                   ),
                 ),
                 SizedBox(

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:minaral_water/components/waterCard.dart';
+import 'package:minaral_water/screens/detailsForms.dart';
 import 'package:minaral_water/screens/profile.dart';
+import 'package:minaral_water/services/FireBaseAuth.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final CardData _cardData = CardData();
+    int amount = 0;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue[300],
@@ -19,8 +23,8 @@ class HomePage extends StatelessWidget {
                 },
                 icon: Icon(Icons.person)),
             IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
+                onPressed: () async {
+                  await AuthServices().signOut();
                 },
                 icon: Icon(Icons.logout)),
           ],
@@ -61,7 +65,12 @@ class HomePage extends StatelessWidget {
                   height: 5,
                 ),
                 FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailsForms()));
+                  },
                   child: Container(
                       padding: EdgeInsets.all(15),
                       child: Text(

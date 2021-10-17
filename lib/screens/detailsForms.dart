@@ -1,71 +1,69 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minaral_water/constant/constant.dart';
-import 'package:minaral_water/screens/home.dart';
 
 class DetailsForms extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  String? _name, _contact, _address, _room_num;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[200],
-        title: Text("Edit Profile"),
+        title: Text("Edit Profile / Data"),
       ),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  "Enter Your Name",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  decoration: kTextfielddecoration.copyWith(
-                    hintText: "Name",
-                  ),
-                  onChanged: (value) {
-                    print(value);
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Name"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Required!";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    _name = value.toString();
                   },
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Your Contact Number",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  decoration:
-                      kTextfielddecoration.copyWith(hintText: "Contact"),
-                  onChanged: (value) {
-                    print(value);
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Contact"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Required!";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    _contact = value.toString();
                   },
                 ),
-                SizedBox(
-                  height: 20,
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Room or Flat Number"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Required!";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    _room_num = value.toString();
+                  },
                 ),
-                Text(
-                  "Complete Address",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  decoration:
-                      kTextfielddecoration.copyWith(hintText: "Address."),
-                  onChanged: (value) {
-                    print(value);
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Complete Address"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Required!";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    _address = value.toString();
                   },
                 ),
                 SizedBox(
@@ -73,13 +71,20 @@ class DetailsForms extends StatelessWidget {
                 ),
                 FlatButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (contex) => HomePage()));
+                    if (!_formKey.currentState!.validate()) {
+                      return;
+                    }
+                    _formKey.currentState!.save();
+                    showCupertinoDialog(
+                      context: context,
+                      builder: cupertino,
+                    );
+                    //Navigator.pop(context);
                   },
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: Text(
-                      "Submit",
+                      "Order/Submit",
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
@@ -95,4 +100,17 @@ class DetailsForms extends StatelessWidget {
       ),
     );
   }
+
+  Widget cupertino(BuildContext context) => CupertinoAlertDialog(
+        title: Text("Message"),
+        content: Text("Your order has been placed."),
+        actions: [
+          CupertinoDialogAction(
+            child: Text('Okay'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      );
 }

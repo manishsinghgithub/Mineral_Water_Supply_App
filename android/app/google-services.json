@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "587351725787",
+    "project_id": "neer-840c4",
+    "storage_bucket": "neer-840c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587351725787:android:7ff1da6c170b9964ce9efe",
+        "android_client_info": {
+          "package_name": "com.example.minaral_water"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587351725787-8fp9b4elffmi8nva3d6v30k6q9cm3qh4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.minaral_water",
+            "certificate_hash": "43558580a8201b259ceb5ef0cefc5bd7b244eec3"
+          }
+        },
+        {
+          "client_id": "587351725787-mmjhgdbn94r8bd3c86ktccvuautfeff9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6YVulsdrUBxwtj_haVusS7a6ttlwf6xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587351725787-mmjhgdbn94r8bd3c86ktccvuautfeff9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
