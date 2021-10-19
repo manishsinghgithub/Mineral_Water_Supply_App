@@ -9,7 +9,7 @@ class DetailsForms extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[200],
-        title: Text("Edit Profile / Data"),
+        title: Text("Shipping Details"),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -84,7 +84,7 @@ class DetailsForms extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: Text(
-                      "Order/Submit",
+                      "Order",
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
